@@ -7,12 +7,14 @@ import { AppValues } from '../app.component';
   styleUrls: ['./one.component.css']
 })
 export class OneComponent implements OnInit {
+
   @Input() appValues: AppValues;
-  @Output() next = new EventEmitter<any>();
+  @Output() next = new EventEmitter<AppValues>();
+  @Output() hasErrors = new EventEmitter<any>();
 
   constructor() { }
 
-  onAddQuestion(question) {
+  onAddQuestion(question: HTMLInputElement) {
     const appValuesCopy = this.appValues;
     if(question.value !== '') {
       appValuesCopy.visbilePanel = 'two';
@@ -22,6 +24,10 @@ export class OneComponent implements OnInit {
     }
     else {
       //show errors
+      this.hasErrors.emit({
+        show: true,
+        message: 'Sorry, you need to enter something.'
+      })
     }
   }
 

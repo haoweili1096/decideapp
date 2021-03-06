@@ -7,7 +7,8 @@
     <app-one
       *ngSwitchCase="'one'"
       [appValues]="appValues"
-      (next)="handleNext($event)"></app-one>
+      (next)="handleNext($event)"
+      (hasErrors)="handleErrors($event)"></app-one>
 
     <app-two
       *ngSwitchCase="'two'"
@@ -16,6 +17,10 @@
     <app-three
       *ngSwitchCase="'three'"
       [appValues]="appValues"></app-three>
+  </div>
+
+  <div *ngIf="errors.show" class="alert alert-danger" role="alert">
+    {{ errors.message }}
   </div>
   
 </div>

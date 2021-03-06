@@ -10,12 +10,22 @@ export interface AppValues{
   answer: string;
 }
 
+export interface Errors{
+  show: boolean;
+  message: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  errors: Errors = {
+    show: false,
+    message: null
+  };
+  
   appValues: AppValues = {
     visbilePanel: 'one', // which component to show
     question: '',
@@ -27,6 +37,18 @@ export class AppComponent implements OnInit{
 
   handleNext(values: AppValues) {
     this.appValues = values;
+  }
+
+  handleErrors(values: Errors) {
+    const errorsCopy = this.errors;
+
+    this.errors = {
+      show: values.show,
+      message: values.message
+    }
+    setTimeout(() => {
+      this.errors = errorsCopy;
+    }, 2000);
   }
 
   ngOnInit() {
