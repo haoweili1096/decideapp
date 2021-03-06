@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { AppValues } from '../app.component';
 
 @Component({
   selector: 'app-three',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./three.component.css']
 })
 export class ThreeComponent implements OnInit {
+  @Input() appValues: AppValues;
 
   constructor() { }
 

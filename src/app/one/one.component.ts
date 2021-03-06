@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { AppValues } from '../app.component';
 
 @Component({
   selector: 'app-one',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./one.component.css']
 })
 export class OneComponent implements OnInit {
+  @Input() appValues: AppValues;
 
   constructor() { }
 
