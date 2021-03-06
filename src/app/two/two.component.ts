@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { AppValues } from '../app.component';
+import { AppValues, Errors } from '../app.component';
 
 @Component({
   selector: 'app-two',
@@ -8,8 +8,17 @@ import { AppValues } from '../app.component';
 })
 export class TwoComponent implements OnInit {
   @Input() appValues: AppValues;
+  @Output() next = new EventEmitter<AppValues>();
+  @Output() hasErrors = new EventEmitter<Errors>();
 
   constructor() { }
+
+  getResults() {
+    const appValuesCopy = this.appValues;
+
+    appValuesCopy.visbilePanel = 'three';
+    this.next.emit(appValuesCopy);
+  }
 
   ngOnInit(): void {
   }
