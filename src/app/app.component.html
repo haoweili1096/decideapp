@@ -6,7 +6,8 @@
   <div [ngSwitch]="appValues.visbilePanel">
     <app-one
       *ngSwitchCase="'one'"
-      [appValues]="appValues"></app-one>
+      [appValues]="appValues"
+      (next)="handleNext($event)"></app-one>
 
     <app-two
       *ngSwitchCase="'two'"

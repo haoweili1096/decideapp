@@ -25,6 +25,10 @@ export class AppComponent implements OnInit{
     answer: null
   };
 
+  handleNext(values: AppValues) {
+    this.appValues = values;
+  }
+
   ngOnInit() {
   }
 }
