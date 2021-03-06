@@ -27,7 +27,7 @@ export class OneComponent implements OnInit {
       this.hasErrors.emit({
         show: true,
         message: 'Sorry, you need to enter something.'
-      })
+      });
     }
   }
 
