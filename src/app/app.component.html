@@ -18,7 +18,9 @@
 
     <app-three
       *ngSwitchCase="'three'"
-      [appValues]="appValues"></app-three>
+      [appValues]="appValues"
+      (next)="handleNext($event)"
+      (resetValues)="handleReset($event)"></app-three>
   </div>
 
   <div *ngIf="errors.show" class="alert alert-danger" role="alert">

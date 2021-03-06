@@ -51,6 +51,19 @@ export class AppComponent implements OnInit{
     }, 2000);
   }
 
+  handleReset() {
+    let appValuesCopy = this.appValues;
+    appValuesCopy = {
+      ...appValuesCopy,
+      visbilePanel: 'one',
+    question: '',
+    mode: false,
+    custom: [],
+    answer: null
+    }
+    this.appValues = appValuesCopy;
+  }
+
   ngOnInit() {
   }
 }
